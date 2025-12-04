@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #e9eef7;
+        }
+        .form-box {
+            width: 400px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px gray;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: #0066ff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #004bcc;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>Student Registration</h2>
+    
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter full name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" required>
+
+        <label>Phone</label>
+        <input type="text" placeholder="Enter phone number" required>
+
+        <label>Gender</label>
+        <select>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Department</label>
+        <select>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Software Engineering</option>
+            <option>Business</option>
+            <option>Other</option>
+        </select>
+
+        <label>Address</label>
+        <textarea rows="3" placeholder="Enter address"></textarea>
+
+        <button type="submit">Register</button>
+
+    </form>
+</div>
+
+</body>
+</html>

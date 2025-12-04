@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To-Do List</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 350px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.2);
+        padding: 25px;
+        margin: 80px auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .task-input {
+        display: flex;
+        gap: 10px;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px 15px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #3d9442;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    li {
+        background: #f1f1f1;
+        padding: 10px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    li.completed {
+        text-decoration: line-through;
+        color: gray;
+        background: #e0e0e0;
+    }
+
+    .delete-btn {
+        background: red;
+        border: none;
+        color: white;
+        padding: 6px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .delete-btn:hover {
+        background: darkred;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>To-Do List</h2>
+
+    <div class="task-input">
+        <input type="text" id="task" placeholder="Enter new task">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+function addTask() {
+    let taskText = document.getElementById("task").value;
+
+    if (taskText === "") {
+        alert("Please enter a task");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = taskText;
+
+    // Mark task completed on click
+    li.onclick = function () {
+        li.classList.toggle("completed");
+    };
+
+    // Delete button
+    let delBtn = document.createElement("button");
+    delBtn.textContent = "X";
+    delBtn.className = "delete-btn";
+    delBtn.onclick = function(event) {
+        event.stopPropagation(); // Prevent clicking li
+        li.remove();
+    };
+
+    li.appendChild(delBtn);
+
+    document.getElementById("taskList").appendChild(li);
+    document.getElementById("task").value = ""; // Clear input
+}
+</script>
+
+</body>
+</html>
